@@ -45,6 +45,7 @@ const sideBarcontent = async (idUsuario) => {
   }
   if (permisos.permisos[8]) {
     sidebar.innerHTML += `<li><a href="entidadesA.html">Ver entidades Asociadas</a></li>`
+    sidebar.innerHTML += `<li><a href="listaUsuarios.html">Ver lista de usuarios</a></li>`
   }
   if (permisos.permisos[9]) {
     sidebar.innerHTML += `<li><a href="avancesProyecto.html">Ver avances de proyectos</a></li>`

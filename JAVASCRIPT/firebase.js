@@ -30,6 +30,7 @@ const currentUser=()=>{
   })
 }
 const getUsuario =(id)=>db.collection("usuarios").doc(id).get();
+const getUsuarios =()=>db.collection("usuarios").get();
 const getPermisos=(id)=>db.collection("tipoDeUsuario").doc(id).get();
 const getCategorias=()=>db.collection("categorias").get();
 const getCategoria=(id)=>db.collection("categorias").doc(id).get();
