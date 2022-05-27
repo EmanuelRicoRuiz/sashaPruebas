@@ -27,7 +27,7 @@ const entidades=async()=>{
     <tr>
       <td>${datos.nombreEntidad}</td>
       <td>${datos.DescripcionEntidad}</td>
-      <td><button type="button" onclick="AprobarEntidad(this)" class="borderBoton btn btn-success">Aprobar Entidad</td>
+      <td><button id="${element.id}" type="button" onclick="AprobarEntidad(this)" class="borderBoton btn btn-success">Aprobar Entidad</td>
       <td><button type="button" onclick="TerminarConvenio(this)" class="borderBoton btn btn-danger">No Aprobar Entidad</td>
 
     </tr>
@@ -74,6 +74,7 @@ const AprobarEntidad = async(objeto) => {
 
   })
   let id=objeto.id;
+
   let entidad=await getEntidad(id);
   entidad=entidad.data();
   let nombreEntidad=entidad.nombreEntidad;

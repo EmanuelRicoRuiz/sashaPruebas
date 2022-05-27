@@ -29,6 +29,9 @@
 	margin-top: 10%;
 	height: 250px;
 }
+#cerrarSesion:hover{
+	cursor: pointer;
+}
 
 
 body {

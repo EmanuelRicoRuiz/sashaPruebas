@@ -16,10 +16,14 @@ const ref = firebase.storage().ref();
 const observador=()=>{
   try{
     firebase.auth().onAuthStateChanged((user)=>{
+      
+      if(user==null && window.location.pathname!="/index.html"){
+        window.location.href="index.html"
+      }
       sideBarcontent(user);    
   })
   }catch{
-    console.log("ventana de inicio")
+    
   }
     
 }
@@ -28,6 +32,13 @@ const currentUser=()=>{
   firebase.auth().onAuthStateChanged((user)=>{
       return user.uid   
   })
+}
+const CerrarSesion=()=>{
+  firebase.auth().signOut().then(() => {
+    window.location.href="index.html"
+  }).catch((error) => {
+    
+  });
 }
 const getUsuario =(id)=>db.collection("usuarios").doc(id).get();
 const getUsuarios =()=>db.collection("usuarios").get();

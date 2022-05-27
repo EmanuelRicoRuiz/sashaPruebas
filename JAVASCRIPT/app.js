@@ -23,44 +23,82 @@ const RegistrarDatosProyecto = async () => {
   let idioma = document.getElementById("idioma").value;
   let licencia = document.getElementById("licencia").value;
   let Asesores = document.getElementById("Asesores").value;
-  let etapa=1
-  let estado=true
+  let etapa = 1
+  let estado = true
   Asesores = Asesores.split(",");
   await firebase.auth().onAuthStateChanged(async (user) => {
     let dueño = user.uid
-    await db.collection("proyectos").doc().set({
-      nombre,
-      categoria,
-      descripcion,
-      urlFoto,
-      Programa,
-      Publico,
-      contenidoInnovador,
-      areaAplicacion,
-      impacto,
-      solucionBrindada,
-      objetivo,
-      Participantes,
-      Metodologia,
-      palabras,
-      idioma,
-      licencia,
-      Asesores,
-      dueño,
-      etapa,
-      estado
-    });
+    try {
+      if (nombre != ""
+        && categoria != ""
+        && descripcion != ""
+        && urlFoto != ""
+        && Programa != ""
+        && Publico != ""
+        && contenidoInnovador != ""
+        && areaAplicacion != ""
+        && impacto != ""
+        && solucionBrindada != ""
+        && objetivo != ""
+        && Participantes != ""
+        && Metodologia != ""
+        && palabras != ""
+        && idioma != ""
+        && licencia != ""
+        && Asesores[0]!=""
+        ) {
+        await db.collection("proyectos").doc().set({
+          nombre,
+          categoria,
+          descripcion,
+          urlFoto,
+          Programa,
+          Publico,
+          contenidoInnovador,
+          areaAplicacion,
+          impacto,
+          solucionBrindada,
+          objetivo,
+          Participantes,
+          Metodologia,
+          palabras,
+          idioma,
+          licencia,
+          Asesores,
+          dueño,
+          etapa,
+          estado
+        })
+        urlFoto = undefined
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Proyecto guardado',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Debes diligenciar el formulario correctamente!',
+
+        })
+      }
+
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes diligenciar el formulario correctamente, incluyendo la foto!',
+
+      })
+    }
+
   })
 
 
-  urlFoto = undefined
-  Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'Proyecto guardado',
-    showConfirmButton: false,
-    timer: 1500
-  })
+
 
 }
 const RegistrarDatosEspacio = async () => {
@@ -167,7 +205,7 @@ async function uploadImage() {
         .then(url => {
 
           urlFoto = url
-          
+
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -180,7 +218,12 @@ async function uploadImage() {
 
     }
   } catch (E) {
-    console.log(E)
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Debes seleccionar una imagen!',
+
+    })
   }
 
 }
@@ -227,7 +270,7 @@ const AñadirEntidad = async () => {
   let nombreEntidad = document.getElementById("nombreEntidad").value;
   let DescripcionEntidad = document.getElementById("DescripcionEntidad").value;
   let CiudadEntidad = document.getElementById("CiudadEntidad").value;
-  let aprobacion=false;
+  let aprobacion = false;
   await db.collection("entidad").doc().set({ nombreEntidad, DescripcionEntidad, CiudadEntidad, aprobacion });
   Swal.fire({
     position: 'top-end',
@@ -237,11 +280,11 @@ const AñadirEntidad = async () => {
     timer: 1500
   })
 }
-const RegistrarDatosServicio=async()=>{
+const RegistrarDatosServicio = async () => {
   event.preventDefault();
-  let nombre=document.getElementById("nombre").value;
-  let descripcion=document.getElementById("descripcion").value;
-  let categoria=document.getElementById("Categoria").value;
+  let nombre = document.getElementById("nombre").value;
+  let descripcion = document.getElementById("descripcion").value;
+  let categoria = document.getElementById("Categoria").value;
   await db.collection("servicios").doc().set({
     nombre,
     descripcion,
@@ -255,5 +298,5 @@ const RegistrarDatosServicio=async()=>{
     showConfirmButton: false,
     timer: 1500
   })
-  urlFoto=undefined;
+  urlFoto = undefined;
 }

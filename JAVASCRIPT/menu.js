@@ -50,6 +50,7 @@ const sideBarcontent = async (idUsuario) => {
   if (permisos.permisos[9]) {
     sidebar.innerHTML += `<li><a href="avancesProyecto.html">Ver avances de proyectos</a></li>`
   }
+  sidebar.innerHTML += `<li><a onclick="CerrarSesion()" id="cerrarSesion">cerrar sesión</a></li>`
 }
 
 
