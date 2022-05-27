@@ -16,13 +16,13 @@ const verficha = async (element) => {
                 <center><img src="${proyecto.urlFoto}" width=100></center>
                 <h3>Nombre del proyecto</h3>
                 <p>${proyecto.nombre}</p>
-                <h3>Descripcion</h3>
+                <h3>Descripción</h3>
                 <p>${proyecto.descripcion}</p>
                 <h3>Programa</h3>
                 <p>${proyecto.Programa}</p>
-                <h3>Publico</h3>
+                <h3>Público</h3>
                 <p>${proyecto.Publico}</p>
-                <h3>contenido Innovador</h3>
+                <h3>Contenido Innovador</h3>
                 <p>${proyecto.contenidoInnovador}</p>
                 <h3>Área Aplicación</h3>
                 <p>${proyecto.areaAplicacion}</p>
@@ -56,13 +56,13 @@ const verficha = async (element) => {
                 <center><img src="${proyecto.urlFoto}" width=100></center>
                 <h3>Nombre del proyecto</h3>
                 <p>${proyecto.nombre}</p>
-                <h3>Descripcion</h3>
+                <h3>Descripción</h3>
                 <p>${proyecto.descripcion}</p>
                 <h3>Programa</h3>
                 <p>${proyecto.Programa}</p>
-                <h3>Publico</h3>
+                <h3>Público</h3>
                 <p>${proyecto.Publico}</p>
-                <h3>contenido Innovador</h3>
+                <h3>Contenido Innovador</h3>
                 <p>${proyecto.contenidoInnovador}</p>
                 <h3>Área Aplicación</h3>
                 <p>${proyecto.areaAplicacion}</p>
